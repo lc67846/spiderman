@@ -67,7 +67,23 @@ AFRAME.registerComponent("hand", {
       self.handleButton("trackpad", "down", evt.detail);
     };
     this.onTrackpadUp = function(evt) {
-      self.handleButton("trackpad", "up", evt.detail);
+      self.handleButton("trackpad", "up", AFRAME.registerComponent('random-color', {
+    dependencies: ['material'],
+
+    Ifbuttonclick then return colors;
+    init: function(){
+        this.el.setAttribute('material', 'color', getRandomColor());
+    }
+});
+
+function getRandomColor(){
+    var letters = '0123456789ABCDEF'
+    var colors = "#"
+    for(var i = 0; i < 6; i++){
+        colors += letters[Math.floor(Math.random() * 16)]
+    }
+    return colors;
+});
     };
     this.onTrackpadChanged = function(evt) {
       self.handleButton("trackpad", "changed", evt.detail);
